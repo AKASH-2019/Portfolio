@@ -1,0 +1,153 @@
+{% load static %}
+
+<style>
+    footer {
+        background: rgba(0,0,0,.85);
+        height: auto;
+        width: 100vw;
+        /* font-family: ; */
+        margin-top: 6rem;
+        padding-top: 20px;
+        color: #fff;
+    }
+    .footer-content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    /* social ul li..........................................  */
+
+    /* .socials li{
+        list-style: none;
+        float: left;
+    }
+    .socials li a{
+        position: relative;
+        width: 50px;
+        height: 50px;
+        background: #e9f5ff;
+        color: #2fa1ff;
+        margin: 0 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        border-radius: 50%;
+        font-size: 20px;
+        transition: 0.5s;
+    }
+    .socials li a:hover{
+        color: #fff;
+    }
+    .socials li a .fa,
+    .socials li a .fab{
+        position: relative;
+        z-index: 1000;
+    }
+    .socials li a::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #2fa1ff;
+        border-radius: 50%;
+        transform: scale(0);
+        transition: 0.5s;
+    }
+    .socials a:nth-child(1)::before {
+        background: #3b5998;
+    }
+    .socials a:nth-child(2)::before {
+        background: #AEB5BB;
+    }
+
+    .socials li a:hover:before{
+        transform: scale(1);
+    } */
+    
+    /* social ul li..........................................end  */
+
+
+    .socials {
+        float: left;
+    }
+    .socials  a{
+        position: relative;
+        width: 40px;
+        height: 40px;
+        background: #e9f5ff;
+        color: #2fa1ff;
+        margin: 0 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        border-radius: 50%;
+        font-size: 20px;
+        transition: 0.5s;
+        float: left;
+    }
+    .socials a:hover{
+        color: #fff;
+    }
+    .socials  a .fa,
+    .socials a .fab{
+        position: relative;
+        z-index: 1000;
+    }
+    .socials  a::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        /* background: #2fa1ff; */
+        border-radius: 50%;
+        transform: scale(0);
+        transition: 0.5s;
+    }
+    .socials a:nth-child(1)::before {
+        background: #3b5998;
+    }
+    .socials a:nth-child(2)::before {
+        background: #AEB5BB;
+    }
+    .socials a:nth-child(3)::before {
+        background: #007bb5;
+    }
+    .socials a:nth-child(4)::before {
+        background: #ea4c89;
+    }
+
+    .socials  a:hover:before{
+        transform: scale(1);
+    }
+
+
+</style>
+
+<footer class="footer-body">
+    <div class="footer-content">
+        <h3 style="margin-bottom: 20px;">Akash | Portfolio</h3>
+        <!-- <img src="{% static 'profile/Logo.png' %}" width="50" height="50" style="margin-top: -6px;  margin-bottom: 20px;" class="d-inline-block align-top" alt="Akash Logo"> -->
+        <!-- <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure rem cum, libero dolor repellat at.</p> -->
+
+        <!-- <ul class="socials">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fab fa-github"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+        </ul> -->
+
+        <div class="socials">
+            <a href="https://www.facebook.com/munazermontasir.akash" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="https://github.com/AKASH-2019"  target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/munazer-montasir-akash-a3514a1b9/"  target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+        </div>
+        <div class="footer-bottom">
+            <p>copyright &copy;2021. Designed by <span>Akash.</span></p>
+        </div>
+    </div>
+</footer>

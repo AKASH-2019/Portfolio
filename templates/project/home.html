@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title_block %} Portfolio | Akash {% endblock %}
+
+{% block css_block %}
+
+<style>
+    body {
+        background: rgba(54, 217, 182, .50);
+        font-family: "Lato", sans-serif;
+        font-weight: 400;
+        line-height: 1.7;
+    }
+
+    .section-stories {
+        margin-top: 4rem;
+    }
+
+    .story {
+        top: 20%;
+        width: 75%;
+        margin: 0 auto;
+        box-shadow: 0 3rem 6rem rgba(0, 0, 0, .25);
+        background-color: #fff;
+        border-radius: 3px;
+        padding: 3rem 4rem 3rem 1.5rem;
+        font-size: 1.2rem;
+
+    }
+
+    .story__shape {
+        width: 13rem;
+        height: 13rem;
+        float: left;
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        /* transform: translateX(-3rem) skewX(12deg); */
+        position: relative;
+    }
+
+    .story__img {
+        height: 100%;
+        border: red;
+    }
+
+    .story__text {
+
+        position: relative;
+        top: 1rem;
+        left: 2.2rem;
+    }
+
+    .story__text p {
+        font-family: 'Lato', sans-serif;
+    }
+
+    @media(max-width:765px) {
+
+
+    }
+
+    .text-center {
+        text-align: center i !important;
+    }
+
+
+
+    .text-center {
+        text-align: center i !important;
+    }
+
+    .text-left {
+        text-align: left i !important;
+    }
+
+    .text-right {
+        text-align: right i !important;
+    }
+
+    .footer__link:link,
+    .footer__link:visited {
+        color: black;
+        font-weight: bold;
+        /* background-color: #333; */
+        text-decoration: none;
+        /* text-transform: uppercase; */
+        display: inline-block;
+        transition: all .2s;
+    }
+
+    /* .footer__link:hover,
+    .footer__link:active {
+        color: #55c57a;
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+        transform: rotate(5deg) scale(1.3);
+    } */
+
+</style>
+
+{% endblock %}
+
+
+
+{% block body_block %}
+
+<section class="section-stories">
+    <div class="row">
+        <div class="story">
+            <figure class="story__shape">
+                <img src="{% static 'profile/akash3.jpg' %}" alt="Profile Image" class="story__img">
+                <figcaption class="story__caption">Mary Smith</figcaption>
+            </figure>
+            <div class="story__text">
+                <!-- <h3 class="heading-tertiary u-margin-buttom-small">I had the best week ever with my family</h3> -->
+                <p>
+                    Assalamualaikum Warahmatulla…. My self <a href="#" class="footer__link">Munazer Montasir AKash</a>.
+                    I am from Chattogram, Bangladesh. I have completed my graduation from IIUC in Bsc in CSE. I am a
+                    person who is positive about every aspect of life.
+                    <br>
+                    I would like to introduce myself as a programmer. I have good experience of problem-solving in
+                    different online judge by different languages. I am proficient in C, C++, JavaScript, R, and Python.
+                    I am also a full-stack web developer. I would build a Web Application using Python, Django Web
+                    Framework. I have well experienced in using the Django Rest Framework REST-based solutions for
+                    back-ends. I also use HTML, CSS, Bootstrap4, and JavaScript for the front end to ensure the Web app
+                    looks attractive. 😊
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+{% endblock %}

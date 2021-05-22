@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+
+{% block title_block %} Portfolio | Project-detail {% endblock %}
+
+{% block css_block %}
+
+<style>
+    body {
+        font-family: 'Lato', sans-serif;
+        background: rgba(54, 217, 182, .50);
+    }
+
+    .project-detail {
+        padding-bottom: 50px;
+        min-height: 90vh;
+    }
+
+    .card {
+        position: absolute;
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 32rem;
+        width: 23rem;
+        border-radius: 10px;
+    }
+
+    .card-img-top {
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        display: flex;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+
+    .card-body {
+        text-align: center;
+        box-shadow: 0px 15px 15px -8px rgba(0, 0, 0, 0.5)
+    }
+
+    .card-body h6 {
+        font-size: 14px;
+        text-transform: uppercase;
+        color: deeppink;
+    }
+
+    .card-title {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 24px;
+    }
+
+    .soc {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .soc a {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        background: #e9f5ff;
+        color: #2fa1ff;
+        margin: 0 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        border-radius: 50%;
+        font-size: 20px;
+        transition: 0.5s;
+        float: left;
+    }
+
+    .soc a:hover {
+        color: #fff;
+    }
+
+    .soc a .fa,
+    .soc a .fab {
+        position: relative;
+        z-index: 1000;
+    }
+
+    .soc a::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        transform: scale(0);
+        transition: 0.5s;
+    }
+
+    .soc a:nth-child(1)::before {
+        background: #AEB5BB;
+    }
+
+    .soc a:nth-child(2)::before {
+        background: #ea4c89;
+    }
+
+    .soc a:hover::before {
+        transform: scale(1);
+    }
+
+    .text-center {
+        text-align: center i !important;
+    }
+
+    .text-left {
+        text-align: left i !important;
+    }
+
+    .text-right {
+        text-align: right i !important;
+    }
+
+    /* responsive design */
+    @media(max-width:767px) {
+
+        .card {
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 28rem;
+            width: 18rem;
+            border-radius: 10px;
+        }
+
+        .card-body h6 {
+            font-size: 12px;
+        }
+
+        .card-title {
+            font-size: 20px;
+        }
+    }
+    @media(max-width:500px) {
+        .card {
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 28rem;
+            width: 18rem;
+            border-radius: 10px;
+        }
+    }
+</style>
+
+{% endblock %}
+
+
+
+{% block body_block %}
+
+<section class="project-detail" id="project-detail">
+    <div class="card text-center">
+        <img class="card-img-top" src="{{project.image.url}}" alt="{{project.title}}">
+        <div class="card-body">
+            <h5 class="card-title">{{project.title}}</h5>
+            <p class="card-text">{{project.description}}</p>
+            <div class="soc">
+                <!-- <a href="#"><i class="fa fa-facebook"></i></a> -->
+                {% if project.github %}
+                <a href="{{project.github}}" target="_blank"><i class="fab fa-github"></i></a>
+                {% else %}
+                <a href="#"><i class="fab fa-github"></i></a>
+                {% endif %}
+                <!-- <a href="#"><i class="fa fa-linkedin"></i></a> -->
+                {% if project.web %}
+                <a href="{{project.web}}" target="_blank"><i class="fa fa-dribbble"></i></a>
+                {% else %}
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

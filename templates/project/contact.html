@@ -1,0 +1,436 @@
+{% extends 'base.html' %}
+
+{% block title_block %} Portfolio | Contact {% endblock %}
+
+{% block css_block %}
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Lato', sans-serif;
+        background-color: rgba(54, 217, 182, .50);
+        box-sizing: border-box;
+    }
+
+    .section-title {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 50px;
+        margin-top: 20px;
+        /* margin-top: .5rem; */
+    }
+
+    .section-title h1 {
+        display: inline-block;
+        font-size: 50px;
+        text-transform: uppercase;
+        color: #302d2d;
+        margin: 0 0 10px;
+        position: relative;
+        padding-bottom: 14px;
+    }
+
+    .section-title h1::before {
+        content: '';
+        height: 6px;
+        background-color: #ffffff;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100px;
+        right: 0;
+        margin: auto;
+    }
+
+    /* .contact-sect {
+        margin: 0 -601.5rem;
+        background-color: rgba(54, 217, 182, .50);
+        display: flex;
+        align-items: center;
+        min-height: 120vh;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+    } */
+    .contact-sect {
+        display: flex;
+        align-items: center;
+        min-height: 120vh;
+    }
+
+    .container-in {
+        position: relative;
+        min-width: 1100px;
+        min-height: 590px;
+        display: flex;
+    }
+
+    .contact-sect .container-in .contact-info {
+        position: absolute;
+        top: 40px;
+        width: 340px;
+        height: calc(100% - 80px);
+        background: #0f3959;
+        z-index: 1;
+        padding: 30px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 20px 20px rgba(0, 0, 0, .6);
+    }
+
+    .contact-sect .container-in .contact-info h2 {
+        color: #f5f5f5;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .contact-sect .container-in .contact-info .info-in {
+        position: relative;
+        margin: 20px 0;
+    }
+
+    .contact-sect .container-in .contact-info .info-in li {
+        position: relative;
+        list-style: none;
+        display: flex;
+        margin: 20px 0;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+
+    .contact-sect .container-in .contact-info .info-in li span:nth-child(1) {
+        width: 30px;
+        min-height: 30px;
+    }
+
+    .contact-sect .container-in .contact-info .info-in li span:nth-child(1) i {
+        max-width: 100%;
+        opacity: 0.5;
+        filter: invert(1);
+    }
+
+    .contact-sect .container-in .contact-info .info-in li span:nth-child(2) {
+        color: #ffffff;
+        margin-left: 10px;
+        font-weight: 500;
+        opacity: 0.7;
+    }
+
+    .contact-sect .container-in .contact-info .info-in li span:nth-child(2) i,
+    .contact-sect .container-in .contact-info .info-in li span:nth-child(2) {
+        opacity: 1;
+    }
+
+    .contact-sect .container-in .contact-info .social-links-media {
+        position: absolute;
+        display: flex;
+    }
+
+    .contact-sect .container-in .contact-info .social-links-media li {
+        list-style: none;
+        margin-left: 22px;
+    }
+
+    .contact-sect .container-in .contact-info .social-links-media li a i {
+        filter: invert(1);
+        color: #eeeeee;
+        font-size: 25px;
+        margin-top: 155px;
+    }
+
+    .contact-sect .container-in .contact-info .social-links-media li:hover a i {
+        color: #000000;
+    }
+
+    .contact-sect .container-in .contact-form-in {
+        position: absolute;
+        padding: 70px 40px;
+        background: #ffffff;
+        margin-left: 120px;
+        padding-left: 250px;
+        width: calc(100%-80px);
+        border-radius: 10px;
+        box-shadow: 0 50px 50px rgba(0, 0, 0, .6);
+    }
+
+    .contact-sect .container-in .contact-form-in h2 {
+        color: #0f3959;
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    .contact-sect .container-in .contact-form-in .in-box-form {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding-top: 30px;
+    }
+
+    .contact-sect .container-in .contact-form-in .in-box-form .in-box-input {
+        position: relative;
+        margin: 0 0 35px 0;
+    }
+
+    .contact-sect .container-in .contact-form-in .in-box-form .in-box-input.row1 {
+        width: 47%;
+    }
+
+    .contact-sect .container-in .contact-form-in .in-box-form .in-box-input.row2 {
+        width: 100%;
+    }
+
+    .contact-sect .container-in .contact-form-in .in-box-form .in-box-input input,
+    .contact-sect .container-in .contact-form-in .in-box-form .in-box-input textarea {
+        width: 100%;
+        font-size: 18px;
+        font-weight: 500;
+        border-radius: 10px;
+        border: 1px solid #504e7e;
+    }
+
+    .contact-sect .container-in .contact-form-in .in-box-form .in-box-input textarea {
+        min-height: 185px;
+    }
+
+    .btn-d {
+        background: red;
+        width: 80px;
+        min-height: 45px;
+        border-radius: 50px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        color: #eeeeee;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .succ-sec {
+        /* margin: 0 -601.5rem; */
+        /* background-color: rgba(54, 217, 182, .50); */
+        display: flex;
+        align-items: center;
+        min-height: 60vh;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .success {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .success h2 {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .success h4 {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+
+    @media(max-width: 767px) {
+        .container-in {
+            position: relative;
+            min-width: 767px;
+            min-height: 590px;
+            display: flex;
+        }
+        .section-title h1 {
+            font-size: 40px;
+        }
+
+        .contact-sect .container-in .contact-form-in h2 {
+            color: #111111;
+            padding-top: -200px;
+        }
+
+        .contact-sect .container-in .contact-info {
+            display: none;
+        }
+
+        .contact-sect .container-in .contact-form-in {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding-top: 12px;
+            padding-left: 10px;
+            margin-left: 0px;
+        }
+
+        .contact-sect .container-in .contact-form-in .in-box-form {
+            align-items: flex-start;
+        }
+
+        .contact-sect .container-in .contact-form-in .in-box-form .in-box-input {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .contact-sect .container-in .contact-form-in .in-box-form .in-box-input .row2 {
+            padding-top: 20px;
+        }
+
+    }
+
+    @media(max-width:500px) {
+        .container-in {
+            position: relative;
+            min-width: 500px;
+            min-height: 590px;
+            display: flex;
+        }
+
+        .section-title h1 {
+            font-size: 30px;
+        }
+
+        .contact-sect .container-in .contact-info {
+            display: none;
+        }
+
+        .contact-sect .container-in .contact-form-in {
+            flex: 0 0 80%;
+            max-width: 80%;
+            padding-top: 12px;
+            border-radius: 10px;
+            padding-left: 10px;
+            margin-left: 0px;
+        }
+
+        .contact-sect .container-in .contact-form-in .in-box-form {
+            align-items: flex-start;
+        }
+
+        .contact-sect .container-in .contact-form-in .in-box-form .in-box-input {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .contact-sect .container-in .contact-form-in .in-box-form .in-box-input .row2 {
+            padding-top: 20px;
+        }
+
+        .btn-d {
+            width: 50px;
+            min-height: 35px;
+            border-radius: 50px;
+            font-size: 14px;
+
+        }
+    }
+
+
+
+
+
+
+
+    .text-center {
+        text-align: center i !important;
+    }
+
+    .text-left {
+        text-align: left i !important;
+    }
+
+    .text-right {
+        text-align: right i !important;
+    }
+</style>
+
+{% endblock %}
+
+
+
+
+{% block body_block %}
+
+{% if success_msg %}
+<section class="succ-sec">
+    <div class="container">
+        <div class="row">
+            <div class="success text-center">
+                <h2>Thanks {{name}}!</h2><br>
+                <h4>Received your email and will respond shortly.....</h4>
+                <!-- <h2></p>{{success_msg}}</h2> -->
+            </div>
+        </div>
+    </div>
+</section>
+
+{% else %}
+<section class="contact-sect" id="contacts">
+    <div class="container">
+        <div class="row">
+            <div class="section-title text-center">
+                <h1>Contact Me</h1>
+            </div>
+        </div>
+        <div class="container-in">
+            <div class="contact-info">
+                <div>
+                    <h2>Contact Info</h2>
+                    <ul class="info-in">
+                        <li>
+                            <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                            <span>Chawkbazar<br>
+                                Chattogram<br>
+                                Bangladesh
+                            </span>
+                        </li>
+                        <li>
+                            <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                            <span>akashmunazer@gmail.com</span>
+                        </li>
+                        <li>
+                            <span><i class="fa fa-phone" aria-hidden="true"></i></span>
+                            <span>+880 1840162225</span>
+                        </li>
+                    </ul>
+                    <ul class="social-links-media">
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="contact-form-in">
+                    <h2>Send a Message</h2>
+                    <div class="in-box-form">
+                        <div class="in-box-input row1">
+                            <input type="text" name="name" placeholder="Name">
+                        </div>
+                        <div class="in-box-input row1">
+                            <input type="email" name="email" placeholder="E-mail">
+                        </div>
+                        <div class="in-box-input row1">
+                            <input type="number" name="number" placeholder="Number">
+                        </div>
+                        <div class="in-box-input row1">
+                            <input type="text" name="subject" placeholder="Subject">
+                        </div>
+                        <div class="in-box-input row2">
+                            <textarea name="message" placeholder="Your Message Here"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-d text-left">Send</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</section>
+{% endif %}
+
+{% endblock %}

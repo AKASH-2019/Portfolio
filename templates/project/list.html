@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+
+{% block title_block %} Portfolio | Project {% endblock %}
+
+{% block css_block %}
+
+<style>
+    body {
+        background: rgba(54, 217, 182, .50);
+        font-family: 'Lato', sans-serif;
+    }
+
+
+    .section-title {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+
+    .section-title h1 {
+        display: inline-block;
+        font-size: 50px;
+        text-transform: uppercase;
+        color: #302d2d;
+        margin: 0 0 10px;
+        position: relative;
+        padding-bottom: 14px;
+    }
+
+    /* .section-title h4{
+    font-size: 20px;
+    color: #423940;
+    position: relative;
+    padding-bottom: 14px;
+} */
+    .section-title h1::before {
+        content: '';
+        height: 6px;
+        /* background-color: #ff0000; */
+        background-color: #fdf9ff;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100px;
+        right: 0;
+        margin: auto;
+    }
+
+    .text-center {
+        text-align: center i !important;
+    }
+
+    .text-left {
+        text-align: left i !important;
+    }
+
+    .text-right {
+        text-align: right i !important;
+    }
+
+
+    .portfolio {
+        /* background-color: #fdf9ff; */
+        padding-bottom: 50px;
+        /* min-height: 120vh; */
+    }
+
+    .portfolio .portfolio-item {
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
+        position: relative;
+        padding: 8px;
+        margin-bottom: 8px;
+    }
+
+    .portfolio .portfolio-inner-item {
+        border: 6px solid #4e4e4e;
+        /* border: 6px solid rgb(54,217,182); */
+        border-radius: 10px;
+        overflow: auto;
+        position: relative;
+        cursor: pointer;
+
+    }
+
+    .portfolio .portfolio-inner-item .portfolio-img img {
+        width: 100%;
+        height: 200px;
+        display: block;
+    }
+
+    .portfolio .portfolio-item .portfolio-info {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        padding-top: 100px;
+        transition: all .5s ease;
+        opacity: 0;
+    }
+
+    .portfolio .portfolio-inner-item:hover .portfolio-info {
+        opacity: 1;
+    }
+
+    .portfolio .portfolio-item .portfolio-info h4 {
+        font-size: 18px;
+        font-weight: 700;
+        color: #f5f5f5;
+        text-transform: capitalize;
+        transition: all .7s ease;
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+
+    .portfolio .portfolio-item .portfolio-info h4>a {
+        text-decoration: none;
+        color: #f5f5f5;
+    }
+
+    .portfolio .portfolio-inner-item:hover .portfolio-info h4 {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+
+    /* Responsive section */
+    @media(max-width:991px) {
+        
+
+        .portfolio .portfolio-item {
+            flex: 0 0 50%;
+            max-width: 50%;
+            position: relative;
+            padding: 8px;
+        }
+    }
+
+    @media(max-width:767px) {
+        .section-title h1 {
+            font-size: 40px;
+        }
+
+        .portfolio .portfolio-item {
+            flex: 0 0 50%;
+            max-width: 50%;
+            position: relative;
+            padding: 8px;
+        }
+    }
+
+    @media(max-width:500px) {
+        .section-title h1 {
+            font-size: 30px;
+        }
+
+        .portfolio .portfolio-item {
+            flex: 0 0 100%;
+            max-width: 100%;
+            position: relative;
+        }
+    }
+</style>
+
+{% endblock %}
+
+
+
+{% block body_block %}
+
+<section class="portfolio" id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="section-title text-center">
+                <h1>My Portfolio</h1>
+                <!-- <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis voluptatum maxime culpa vitae.</h4> -->
+            </div>
+        </div>
+        <div class="row">
+
+            {% for project in data %}
+            <div class="portfolio-item">
+                <div class="portfolio-inner-item">
+                    <div class="portfolio-img">
+                        <img src="{{project.image}}" alt="{{project.title}}">
+                    </div>
+                    <div class="portfolio-info text-center">
+                        <h4><a href="{% url 'App_Portfolio:project-detail' pk=project.id %}">{{project.title}}</a></h4>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

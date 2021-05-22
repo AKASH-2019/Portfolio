@@ -1,0 +1,48 @@
+{% load static %}
+
+<style>
+  .dyn-nav {
+    background-color: #fff;
+  }
+
+  .custom-toggler.navbar-toggler {
+    /* border-color: rgb(255, 102, 203); */
+    /* border-color: rgb(54,217,182); */
+    border-color: rgba(0,0,0,.3);
+  }
+
+  .custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,.15)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg  dyn-nav">
+  <div class="container">
+    <!-- <a class="navbar-brand" style="color: rgb(54,217,182); font-weight: 700; font-size: 1.5rem;" href="{% url 'App_Portfolio:home' %}">AKASH</a> -->
+    <a class="navbar-brand" href="{% url 'App_Portfolio:home' %}">
+      <img src="{% static 'profile/Logo.png' %}" width="30" height="30" style="margin-top: 3.5px;" class="d-inline-block align-top" alt="Akash Logo">
+      <span style="color: rgb(54,217,182); font-weight: 700; font-size: 1.5rem; margin-left: 5px;">Akash</span>
+    </a>
+    <button type="button" class="navbar-toggler navbar-toggler-right custom-toggler" data-toggle="collapse"
+      data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span
+        class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item mr-5">
+          <!-- <a href="#" class="btn btn-primary">Project</a> -->
+          <a href="{% url 'App_Portfolio:list' %}" class="btn">Portfolio</a>
+        </li>
+
+        <li class="nav-item">
+          <!-- <a href="#" class="btn btn-primary">Login</a> -->
+          <a href="{% url 'App_Portfolio:contact' %}" class="btn">Contact</a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
